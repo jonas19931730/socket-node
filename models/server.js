@@ -1,7 +1,7 @@
 require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
-const socketController2 = require('../sockets/controller');
+const socketController = require('../sockets/controller');
 class Server{
     
     constructor() {
@@ -28,7 +28,7 @@ class Server{
        
     }
     sockets(){
-        this.io.on('connection',socketController2);
+        this.io.on('connection',socketController);
     }
     listen(){
         this.server.listen(this.port,()=>{

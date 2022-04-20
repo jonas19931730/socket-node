@@ -1,30 +1,27 @@
 
-
-const lblOnline = document.querySelector('#lblOnline');
-const lblOffline = document.querySelector('#lblOffline');  
-const txtMensaje = document.querySelector('#txtMensaje')
-const btnEnviar = document.querySelector('#btnEnviar')
-
+// Referencias del HTML
+const lblNuevo  = document.querySelector('#lblNuevoTicket');
+const btnCrear = document.querySelector('button');
 
 const socket = io();
 
+socket.on('connect', () => {
+    btnCrear.disabled = false;
+    
+});
+
+socket.on('disconnect', () => {
+    btnCrear.disabled = true;
+});
 
 
-socket.on('connect',()=>{
-    lblOnline.style.display = '';
-    lblOffline.style.display = 'none';
+socket.on('enviar-mensaje', (payload) => {
+    console.log( payload )
 })
 
-socket.on('disconnect',()=>{
-    lblOnline.style.display = 'none';
-    lblOffline.style.display = '';
-})
 
-socket.on('enviar-mensaje',(payload)=>{
-    console.log(payload)
-})
+btnCrear.addEventListener( 'click', () => {
 
-btnEnviar.addEventListener('click',()=>{
-    const mensaje = txtMensaje.value;
-    socket.emit('enviar-mensaje',mensaje);
-})
+    
+
+});
