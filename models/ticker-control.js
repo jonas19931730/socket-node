@@ -7,8 +7,6 @@ class Ticket{
         this.escritorio = escritorio;
     }
 }
-
-
 class TicketControl{
     
     constructor(
@@ -48,7 +46,6 @@ class TicketControl{
         else{
             this.guardarDb();
         }
-
 
     }
     guardarDb(){

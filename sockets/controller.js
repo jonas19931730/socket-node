@@ -30,16 +30,12 @@ const socketController = (client) =>{
                 msg:'Ya no hay más tickets'
             })
         }else{
-
-            
             return callback({
                 ok:true,
                 ticket
             })
         }
     })
-
-    //TODO: Notificar que hay un nuevo ticket pendiente de asignar
 } 
 
 module.exports = socketController;
